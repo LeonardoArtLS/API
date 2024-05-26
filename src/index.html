@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./input.css">
+    <script src="../api/api.js"></script>
+    <script>
+        // Função para alternar entre os temas
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        // Carregar o tema preferido do usuário ao carregar a página
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+
+<body class="dark:bg-black bg-zinc-100 w-[100vw] overflow-x-hidden dark:text-white">
+
+    <header class="w-[100vw] grid items-center grid-cols-3 mt-10">
+        <div class="justify-self-start flex ms-3 sm:ms-6 md:ms-16 fixed mt-7 md:mt-16 z-50 iconHeader">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0"
+                viewBox="0 0 511 512" xml:space="preserve" class="w-7 h-7 md:w-10 md:h-10 md:mx-2 md:mb-1 hover:rotate-180 transition-transform duration-300">
+                <g>
+                    <path
+                        d="M507.867 14.848a15.008 15.008 0 0 0-3.914-9.078c-4.207-5.395-11.715-7.372-18.168-4.36l-.297.14c-.222.102-.437.212-.652.325l-373.063 182.86c-4.734 2.32-7.906 6.96-8.343 12.218s1.914 10.36 6.203 13.438l103.656 74.379L5.07 486.219c-5.394 5.219-6.101 13.625-1.652 19.668A14.983 14.983 0 0 0 15.508 512c2.441 0 4.91-.598 7.18-1.836l393.34-214.754a14.98 14.98 0 0 0 7.78-12.242 15 15 0 0 0-6.226-13.11l-96.05-68.917L503.288 26.738a15.011 15.011 0 0 0 4.578-11.89zm0 0">
+                    </path>
+                </g>
+            </svg>
+        </div>
+
+        <nav class="Inter-Tight text-sm md:text-xl 2xl:text-2xl md:px-7 font-bold text-center left-1/2 -translate-x-1/2 fixed top-8 z-50">
+            <form class="relative" id="searchForm" onsubmit="search(); return false;">
+                <div class="shadow-md dark:shadow-sm dark:shadow-zinc-800 bg-zinc-200 dark:bg-zinc-800 rounded-full px-5 md:px-12 py-[0.62rem] border-2 border-transparent">
+                <button class="top-1/2 -translate-y-1/2 absolute left-0 ms-3" type="submit">
+                    <svg fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-labelledby="search" class="w-5 h-5 md:w-7 md:h-7 text-gray-600 fill-gray-600 hover:scale-110 hover:duration-300" viewBox="0 0 24 24">
+                        <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                        <path d="M10.5 5.5a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-6.5 5a6.5 6.5 0 1 1 13 0a6.5 6.5 0 0 1-13 0"/><path d="M14.47 14.47a.75.75 0 0 1 1.06 0l4 4a.75.75 0 1 1-1.06 1.06l-4-4a.75.75 0 0 1 0-1.06"/></g>
+                    </svg>
+                </button>
+                <input
+                    class="focus:outline-none caret-gray-400 placeholder-gray-400 bg-zinc-200 dark:bg-zinc-800 ms-4 md:ms-2 autofill:bg-zinc-200 dark:autofill:bg-zinc-800 w-44 md:w-auto" autofocus autocomplete="off"
+                    placeholder="Pesquisa..." required type="text" id="searchInput"/>
+                <button type="reset" class="top-1/2 -translate-y-1/2 absolute">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-6 md:h-6 text-gray-600 hover:rotate-180 hover:duration-300" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            </form>
+        </nav>
+
+        <div class="items-center justify-self-end me-3 sm:me-6 md:me-16 fixed mt-7 md:mt-16 z-50 iconHeader">
+            <label class="themeButton">
+                <input checked="checked" type="checkbox" onchange="toggleTheme()">
+                <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg" class="moon w-6 h-6 md:w-7 md:h-7">
+                    <path
+                        d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z">
+                    </path>
+                </svg>
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="sun w-6 h-6 md:w-7 md:h-7">
+                    <path
+                        d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z">
+                    </path>
+                </svg>
+            </label>
+        </div>
+
+    </header>
+    <div class="flex justify-items-center items-center w-screen p-3">
+        <div class="mt-16 md:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-items-center text-xs gap-8 items-center" id="articles-container">
+
+            <section class="hidden">
+                <article>
+                    <div class="group-hover:scale-125 group overflow-hidden relative text-gray-50 rounded-2xl 2xl:rounded-3xl hover:duration-700 duration-700 w-full aspect-square">
+                        <div class="w-full aspect-square text-gray-800">
+                            `<img src="https://www.slashgear.com/img/gallery/5-companies-working-on-humanoid-robots/l-intro-1716290551.jpg" alt="${article.title}" class="w-full h-full aspect-square group-hover:blur-sm object-cover scale-125">
+                        </div>
+                        <div class="absolute bg-black bg-opacity-50 -bottom-24 w-full group-hover:aspect-square p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
+                            <span class="text-white font-bold text-xl 2xl:text-4xl Inter-Tight hidden group-hover:flex md:mt-14">Who Designs and Creates Humanoid Robots?</span>
+                            <span class="text-white font-bold text-xs 2xl:text-2xl hidden group-hover:flex Roboto-Mono">Keyede Erinfolami</span>
+                            <span class="text-white font-bold text-xs 2xl:text-2xl hidden group-hover:flex Roboto-Mono">SlashGear</span>
+                            <span class="text-white font-bold text-sm 2xl:text-2xl hidden group-hover:flex Roboto-Mono">2024-05-26T20:36:59</span>
+                            <p class="text-white hidden text-xs 2xl:text-2xl group-hover:flex Roboto-Mono md:mt-5 xl:mt-10">Like Tesla, Figure initially presented its humanoid robot as a concept. The company revealed a render in March 2023, and came out of the gate with several ambitious promises. Already named Figure 01,… [+1316 chars]</p>
+                            <a href="${article.url}" target="_blank" class="bg-white text-black w-24 rounded-full Roboto-Mono text-center text-base -tracking-widest p-1 mt-auto ms-auto m-3 hover:bg-black hover:text-white shadow-sm hover:shadow-white">Leia mais</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+        </div>
+    </div>
+</body>
+
+</html>

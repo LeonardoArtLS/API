@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.Roboto-Mono {
+    font-family: "Roboto Mono", sans-serif;
+}
+
+.Inter-Tight {
+    font-family: "Inter Tight", sans-serif;
+}
+
+/* SCROLL */
+::-webkit-scrollbar {
+    height: 1rem;
+    width: .9rem;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: .5rem;
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+    --tw-border-opacity: 1;
+    background-color: rgb(0, 0, 0);
+    border-color: rgba(255, 255, 255);
+    border-radius: 9999px;
+    border-width: 1px;
+    border: 3px rgba(255, 255, 255, 0) solid;
+    background-clip: padding-box;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background-color: rgb(226 232 240);
+}
+
+/* HEADER */
+.iconHeader {
+    z-index: 999 !important;
+}
+
+.iconHeader {
+    color: white;
+    fill: white;
+    mix-blend-mode: difference;
+}
+
+/* Button Theme */
+.themeButton {
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+}
+
+.themeButton .moon {
+    animation: keyframes-fill .5s;
+}
+
+.themeButton .sun {
+    display: none;
+    animation: keyframes-fill .5s;
+}
+
+.themeButton input:checked~.moon {
+    display: none;
+}
+
+.themeButton input:checked~.sun {
+    display: block;
+}
+
+.themeButton input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+@keyframes keyframes-fill {
+    0% {
+        transform: rotate(-360deg) scale(0);
+        opacity: 0;
+    }
+
+    75% {
+        transform: rotate(25deg);
+    }
+}
