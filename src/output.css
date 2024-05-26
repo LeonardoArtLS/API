@@ -1492,6 +1492,14 @@ video {
     margin-top: 1.25rem;
   }
 
+  .md\:mt-7 {
+    margin-top: 1.75rem;
+  }
+
+  .md\:mt-2 {
+    margin-top: 0.5rem;
+  }
+
   .md\:h-6 {
     height: 1.5rem;
   }

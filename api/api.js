@@ -1,4 +1,6 @@
-const apiKey = '61eae65de0c74ece9f8194c44fc3d064';
+const apiKey = 'f66d2b791fd84ac8a1879a6c1049231f';
+//f66d2b791fd84ac8a1879a6c1049231f
+//61eae65de0c74ece9f8194c44fc3d064
 let apiUrl;
 
 // Função para buscar e exibir artigos
