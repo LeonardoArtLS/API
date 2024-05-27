@@ -29,7 +29,7 @@ async function search() {
                 <article>
                     <div class="group-hover:scale-125 group overflow-hidden relative text-gray-50 rounded-2xl 2xl:rounded-3xl hover:duration-700 duration-700 w-full aspect-square">
                         <div class="w-full aspect-square text-gray-800">
-                        ${article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}" class="w-full h-full aspect-square group-hover:blur-sm object-cover scale-125">` : ''}
+                        ${article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}" class="w-full h-full aspect-square group-hover:blur-sm object-cover scale-125 bg-slate-400 dark:bg-zinc-800">` : ''}
                         </div>
                         <div class="absolute bg-black bg-opacity-50 -bottom-24 w-full group-hover:aspect-square p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
                             <span class="text-white font-bold text-xl 2xl:text-4xl Inter-Tight hidden group-hover:flex md:mt-14">${article.title}</span>
