@@ -27,16 +27,17 @@ async function search() {
 
             <section>
                 <article>
-                    <div class="group-hover:scale-125 group overflow-hidden relative text-gray-50 rounded-2xl 2xl:rounded-3xl hover:duration-700 duration-700 w-full aspect-square">
-                        <div class="w-full aspect-square text-gray-800">
-                        ${article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}" class="w-full h-full aspect-square group-hover:blur-sm object-cover scale-125 bg-slate-400 dark:bg-zinc-800">` : ''}
+                    <div class="group-hover:scale-125 group overflow-hidden relative text-gray-50 rounded-2xl 2xl:rounded-3xl hover:duration-700 duration-700 w-full h-96 sm:h-auto sm:aspect-square">
+                        <div class="w-full h-96 sm:h-auto sm:aspect-square text-gray-800">
+                        ${article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}" class="w-[85vw] sm:w-96 h-96 sm:h-auto sm:aspect-square group-hover:blur-sm object-cover scale-125 bg-slate-400 dark:bg-zinc-800">`
+                        : ''}
                         </div>
-                        <div class="absolute bg-black bg-opacity-50 -bottom-24 w-full group-hover:aspect-square p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
-                            <span class="text-white font-bold text-xl 2xl:text-2xl Inter-Tight hidden group-hover:flex md:mt-14">${article.title}</span>
-                            <span class="text-white font-bold text-xs 2xl:text-xl hidden group-hover:flex Roboto-Mono">${article.author}</span>
-                            <span class="text-white font-bold text-xs 2xl:text-xl hidden group-hover:flex Roboto-Mono">${article.source.name}</span>
-                            <span class="text-white font-bold text-sm 2xl:text-xl hidden group-hover:flex Roboto-Mono">${new Date(article.publishedAt).toLocaleString()}</span>
-                            <p class="text-white hidden text-xs 2xl:text-xl group-hover:flex Roboto-Mono md:mt-5 xl:mt-10">${article.content}</p>
+                        <div class="absolute bg-black bg-opacity-50 -bottom-24 w-full group-hover:h-96 sm:h-auto sm:group-hover:aspect-square p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
+                            <span class="text-white font-bold text-base sm:text-lg min-[1860px]:text-base Inter-Tight hidden group-hover:flex">${article.title}</span>
+                            <span class="text-white font-bold sm:text-xs min-[1860px]:text-sm hidden group-hover:flex Roboto-Mono">${article.author}</span>
+                            <span class="text-white font-bold sm:text-xs min-[1860px]:text-sm hidden group-hover:flex Roboto-Mono">${article.source.name}</span>
+                            <span class="text-white font-bold sm:text-xs min-[1860px]:text-sm hidden group-hover:flex Roboto-Mono">${new Date(article.publishedAt).toLocaleString()}</span>
+                            <p class="text-white hidden sm:text-xs min-[1860px]:text-sm group-hover:flex Roboto-Mono sm:mt-3 md:mt-5 xl:mt-10">${article.content}</p>
                             <a href="${article.url}" target="_blank" class="bg-white text-black w-24 rounded-full Roboto-Mono text-center text-base -tracking-widest p-1 mt-auto ms-auto m-3 hover:bg-black hover:text-white shadow-sm hover:shadow-white">Leia mais</a>
                         </div>
                     </div>

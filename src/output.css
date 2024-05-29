@@ -643,10 +643,6 @@ video {
   display: none;
 }
 
-.aspect-square {
-  aspect-ratio: 1 / 1;
-}
-
 .h-4 {
   height: 1rem;
 }
@@ -665,10 +661,6 @@ video {
 
 .h-96 {
   height: 24rem;
-}
-
-.h-full {
-  height: 100%;
 }
 
 .w-24 {
@@ -695,12 +687,12 @@ video {
   width: 1.75rem;
 }
 
-.w-96 {
-  width: 24rem;
-}
-
 .w-\[100vw\] {
   width: 100vw;
+}
+
+.w-\[85vw\] {
+  width: 85vw;
 }
 
 .w-full {
@@ -859,11 +851,6 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 .text-xs {
@@ -1101,8 +1088,8 @@ video {
   display: flex;
 }
 
-.group:hover .group-hover\:aspect-square {
-  aspect-ratio: 1 / 1;
+.group:hover .group-hover\:h-96 {
+  height: 24rem;
 }
 
 .group:hover .group-hover\:scale-125 {
@@ -1125,12 +1112,34 @@ video {
     margin-inline-start: 1.5rem;
   }
 
-  .sm\:flex {
-    display: flex;
+  .sm\:mt-3 {
+    margin-top: 0.75rem;
   }
 
-  .sm\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .sm\:aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .sm\:h-auto {
+    height: auto;
+  }
+
+  .sm\:w-96 {
+    width: 24rem;
+  }
+
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .sm\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .group:hover .sm\:group-hover\:aspect-square {
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -1154,10 +1163,6 @@ video {
 
   .md\:ms-2 {
     margin-inline-start: 0.5rem;
-  }
-
-  .md\:mt-14 {
-    margin-top: 3.5rem;
   }
 
   .md\:mt-16 {
@@ -1200,10 +1205,6 @@ video {
     width: auto;
   }
 
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .md\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -1217,6 +1218,12 @@ video {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 810px) {
+  .screen-810px\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1235,26 +1242,32 @@ video {
 }
 
 @media (min-width: 1536px) {
-  .\32xl\:flex {
-    display: flex;
-  }
-
-  .\32xl\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .\32xl\:rounded-3xl {
     border-radius: 1.5rem;
   }
+}
 
-  .\32xl\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
+@media (min-width: 1860px) {
+  .screen-1860px\:flex {
+    display: flex;
   }
 
-  .\32xl\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  .screen-1860px\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .min-\[1860px\]\:flex {
+    display: flex;
+  }
+
+  .min-\[1860px\]\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .min-\[1860px\]\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
