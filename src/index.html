@@ -7,26 +7,6 @@
     <title>Document</title>
     <link href="./output.css" rel="stylesheet">
     <link rel="stylesheet" href="./input.css">
-    <script src="../api/api.js"></script>
-    <script>
-        // Função para alternar entre os temas
-        function toggleTheme() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.theme = 'light';
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.theme = 'dark';
-            }
-        }
-
-        // Carregar o tema preferido do usuário ao carregar a página
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
 </head>
 
 <body class="dark:bg-black bg-zinc-100 w-[100vw] overflow-x-hidden dark:text-white">
@@ -49,7 +29,7 @@
             <form class="relative" id="searchForm" onsubmit="search(); return false;">
                 <div
                     class="shadow-md dark:shadow-sm dark:shadow-zinc-800 bg-zinc-200 dark:bg-zinc-800 rounded-full px-5 md:px-12 py-[0.62rem] border-2 border-transparent">
-                    <button class="top-1/2 -translate-y-1/2 absolute left-0 ms-3" type="submit">
+                    <button class="top-1/2 -translate-y-1/2 absolute left-0 ms-3" type="search">
                         <svg fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search"
                             class="w-5 h-5 md:w-7 md:h-7 text-gray-600 fill-gray-600 hover:scale-110 hover:duration-300"
                             viewBox="0 0 24 24">
@@ -189,6 +169,8 @@
 
         </div>
     </div>
+    <script src="./api/api.js"></script>
+    <script src="./api/themes.js"></script>
 </body>
 
 </html>
